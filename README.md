@@ -8,6 +8,10 @@ Run all commands from root directory C:\...\File_batch_processing
 - Python Installed
 - Clone repository
 
+```bash
+git clone https://github.com/FerAhuatzin/File_batch_processing.git
+```
+
 ## For Windows
 1. Download dependencies:
 ```bash
