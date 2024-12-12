@@ -78,9 +78,9 @@ def process_batch ():
     print(f"Consolidated data saved in {output_file_path}")
 
     #Used to analyze how to clean data
-    observeData(consolidacion)
+    #observeData(consolidacion)
     consolidacion = preprocess(consolidacion.copy())
-    observeData(consolidacion)
+    #observeData(consolidacion)
 
     #VENTAS_MES (monthly sales per product)
     monthly_sales = getMonthlySales(consolidacion.copy())
