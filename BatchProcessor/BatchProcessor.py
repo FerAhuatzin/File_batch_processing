@@ -68,19 +68,20 @@ def getTop10Products(consolidacion: pd.DataFrame, year: int):
 
 
 def process_batch ():
+
     fecha_de_ejecucion = datetime.now().strftime('%Y-%m-%d')
+    
     #CONSOLIDACIÓN (Join files in raw folder)
     consolidacion = pd.concat(transformData())
     print(f"Data consolidated...")
-    output_file_name = f'CONSOLIDACIÓN_{fecha_de_ejecucion}.csv'
-    output_file_path = os.path.join(output_folder, output_file_name)
-    consolidacion.to_csv(output_file_path, index=False)
-    print(f"Consolidated data saved in {output_file_path}")
-
     #Used to analyze how to clean data
     #observeData(consolidacion)
     consolidacion = preprocess(consolidacion.copy())
     #observeData(consolidacion)
+    output_file_name = f'CONSOLIDACIÓN_{fecha_de_ejecucion}.csv'
+    output_file_path = os.path.join(output_folder, output_file_name)
+    consolidacion.to_csv(output_file_path, index=False)
+    print(f"Consolidated data saved in {output_file_path}")
 
     #VENTAS_MES (monthly sales per product)
     monthly_sales = getMonthlySales(consolidacion.copy())
